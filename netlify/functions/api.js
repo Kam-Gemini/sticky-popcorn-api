@@ -20,7 +20,24 @@ import reviewController from "../../controllers/reviewController.js"
 
 const app = express()
 const port = process.env.port || 3000
-app.use(cors())
+const allowedOrigins = [
+  'http://localhost:5173', // For local dev
+  'https://sticky-popcorn.netlify.app' // Your Netlify frontend
+]
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}))
+
 app.use(express.json()) //# parses JSON body type, adding them to the req.body
 app.use(mongoSanitize()) //# prevent cody injections
 app.use(logger) //# logs out key information on incoming requests
