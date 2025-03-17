@@ -20,24 +20,7 @@ import reviewController from "../../controllers/reviewController.js"
 
 const app = express()
 const port = process.env.port || 3000
-const allowedOrigins = [
-  'http://localhost:5173', // For local dev
-  'https://sticky-popcorn.netlify.app' // Your Netlify frontend
-]
-
-app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true
-}))
-
+app.use(cors())
 app.use(express.json()) //# parses JSON body type, adding them to the req.body
 app.use(mongoSanitize()) //# prevent cody injections
 app.use(logger) //# logs out key information on incoming requests
@@ -49,16 +32,17 @@ app.use('/', reviewController)
 app.use(errorHandler)
 
 //? Server connection
+let isConnected = false
+
 const establishServerConnections = async () => {
-    try {
-      
-      await mongoose.connect(process.env.MONGODB_URI)
-      console.log('🤖 Database connection established')
-    } catch (error) {
-        console.log(error)
-    }
+  if (isConnected) return
+  await mongoose.connect(process.env.MONGODB_URI)
+  isConnected = true
+  console.log('🤖 Database connected')
 }
 
-establishServerConnections()
+await establishServerConnections()  // Top-level await won't work in CJS; use IIFE or .then
 
 export const handler = serverless(app)
+
+
