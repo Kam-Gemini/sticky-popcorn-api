@@ -1,6 +1,7 @@
 [functions]
   external_node_modules = ["express"]
   node_bundler = "esbuild"
+  external_node_modules = ["express", "mongoose", "cors", "express-mongo-sanitize", "dotenv", "serverless-http"]
 
 # Catch-all redirect for API calls
 [[redirects]]
