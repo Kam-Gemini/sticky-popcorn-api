@@ -49,6 +49,13 @@ userSchema.set('toJSON', {
   }
 })
 
+// Virtual field for confirmPassword
+userSchema
+    .virtual('confirmPassword')
+    .set(function (confirmPassword) {
+        return this._confirmPassword = confirmPassword
+    })
+
 userSchema.pre('save', function(next) {  
   if (this.isModified('password')){
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
