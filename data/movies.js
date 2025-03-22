@@ -1,25 +1,5 @@
 export default [
   {
-    "title": "Back to the Future",
-    "year": 1985,
-    "cast": ["Michael J. Fox", "Christopher Lloyd"],
-    "director": "Robert Zemeckis",
-    "genre": ["Adventure", "Comedy", "Sci-Fi"],
-    "runtime": "116 min",
-    "certificate": "PG",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BZmM3ZjE0NzctNjBiOC00MDZmLTgzMTUtNGVlOWFlOTNiZDJiXkEyXkFqcGc@._V1_SX300.jpg"
-  },
-  {
-    "title": "E.T. the Extra-Terrestrial",
-    "year": 1982,
-    "cast": ["Henry Thomas", "Drew Barrymore"],
-    "director": "Steven Spielberg",
-    "genre": ["Family", "Sci-Fi"],
-    "runtime": "115 min",
-    "certificate": "PG",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BYTNhNmY0YWMtMTczYi00MTA0LThhMmUtMTIxYzE0Y2QwMzRlXkEyXkFqcGc@._V1_SX300.jpg"
-  },
-  {
     "title": "The Breakfast Club",
     "year": 1985,
     "cast": ["Emilio Estevez", "Molly Ringwald"],
@@ -138,6 +118,26 @@ export default [
     "runtime": "136 min",
     "certificate": "R",
     "poster_url": "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "title": "Back to the Future",
+    "year": 1985,
+    "cast": ["Michael J. Fox", "Christopher Lloyd"],
+    "director": "Robert Zemeckis",
+    "genre": ["Adventure", "Comedy", "Sci-Fi"],
+    "runtime": "116 min",
+    "certificate": "PG",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BZmM3ZjE0NzctNjBiOC00MDZmLTgzMTUtNGVlOWFlOTNiZDJiXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "title": "E.T. the Extra-Terrestrial",
+    "year": 1982,
+    "cast": ["Henry Thomas", "Drew Barrymore"],
+    "director": "Steven Spielberg",
+    "genre": ["Family", "Sci-Fi"],
+    "runtime": "115 min",
+    "certificate": "PG",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BYTNhNmY0YWMtMTczYi00MTA0LThhMmUtMTIxYzE0Y2QwMzRlXkEyXkFqcGc@._V1_SX300.jpg"
   },
   {
     "title": "Jurassic Park",
