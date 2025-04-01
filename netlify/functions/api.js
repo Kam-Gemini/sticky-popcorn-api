@@ -16,7 +16,11 @@ import reviewController from "../../controllers/reviewController.js"
 
 const app = express()
 const port = process.env.port || 3000
-app.use(cors())
+app.use(cors(
+  {
+    origin: process.env.CORS_ORIGIN
+  }
+))
 app.use(express.json()) //# parses JSON body type, adding them to the req.body
 app.use(mongoSanitize()) //# prevent cody injections
 app.use(logger) //# logs out key information on incoming requests
